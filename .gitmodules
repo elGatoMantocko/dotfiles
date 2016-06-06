@@ -1,7 +1,7 @@
 [submodule "vim"]
-	path = /home/elliott/.dotfiles/vim
-	url = https://github.com/elGatoMantocko/vimrc.git
+  path = /home/elliott/.dotfiles/vim
+  url = https://github.com/elGatoMantocko/vimrc.git
 
 [submodule "i3"]
-    path = /home/elliott/.dotfiles/i3
-    url = https://github.com/elGatoMantock/i3-config
+  path = /home/elliott/.dotfiles/i3
+  url = https://github.com/elGatoMantock/i3-config
