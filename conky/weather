@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LOC=$(curl -s ipinfo.io | jq '.loc' | sed -e 's/^"//'  -e 's/"$//')
+URL="https://api.forecast.io/forecast/3aed5ea1411e637e02b81e10fd959aef/$LOC"
+
+DATA=$(curl -s $URL | jq '.currently')
+
+TEMP=$(echo $DATA | jq '.temperature')
+SUM=$(echo $DATA | jq '.summary' | sed -e 's/^"//'  -e 's/"$//')
+
+echo $SUM $TEMP
