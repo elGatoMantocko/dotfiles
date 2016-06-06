@@ -15,6 +15,8 @@
 ### Optional packages:
 
 * [thefuck](https://github.com/nvbn/thefuck.git)
+* [vim config](https://github.com/elGatoMantocko/vimrc.git)
+* [i3 config](https://github.com/elGatoMantocko/i3-config.git)
 
 ### Installation
 
