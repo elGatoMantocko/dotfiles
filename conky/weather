@@ -8,4 +8,4 @@ DATA=$(curl -s $URL | jq '.currently')
 TEMP=$(echo $DATA | jq '.temperature')
 SUM=$(echo $DATA | jq '.summary' | sed -e 's/^"//'  -e 's/"$//')
 
-echo $SUM $TEMP
+echo $SUM $TEMP > /home/elliott/.tmp/weather/current

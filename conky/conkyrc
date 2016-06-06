@@ -12,15 +12,15 @@ times_in_seconds true
 
 TEXT
 ,[
-  {"full_text": "   [$membar] ", "color":"\#B58900"},
+  {"full_text": "   ${exec cat ~/.tmp/weather/current} ", "color":"\#B58900"},
   ${if_up wlp3s0}
-    {"full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB"},
+    {"full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB","color":"\#A4ADD3"},
     {"full_text": "   ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#33CC99"},
   $else ${if_up ppp0}
-    {"full_text": "   ${downspeedf ppp0}KB   ${upspeedf ppp0}KB"},
+    {"full_text": "   ${downspeedf ppp0}KB   ${upspeedf ppp0}KB","color":"\#A4ADD3"},
     {"full_text": "   orange ","color":"\#33CC99"},
   $else ${if_up enp0s25}
-    {"full_text": "   ${downspeedf enp0s25}KB   ${upspeedf enp0s25}KB"},
+    {"full_text": "   ${downspeedf enp0s25}KB   ${upspeedf enp0s25}KB","color":"\#A4ADD3"},
     {"full_text": "   enp0s25 ","color":"\#33CC99"},
   $else
     {"full_text": " ≈ no connection ","color":"\#33CC99"},
