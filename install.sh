@@ -2,8 +2,8 @@
 
 #install fonts
 mkdir -p $HOME/.local/share/fonts
-wget -P $HOME/.local/share/fonts https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
-wget -P $HOME/.local/share/fonts https://github.com/FortAwesome/Font-Awesome/blob/master/fonts/FontAwesome.otf
+[ ! -e $HOME/.local/share/fonts/Droid\ Sans\ Mono\ for\ Powerline.otf ] && wget -P $HOME/.local/share/fonts https://github.com/powerline/fonts/raw/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
+[ ! -e $HOME/.local/share/fonts/FontAwesome.otf ] && wget -P $HOME/.local/share/fonts https://github.com/FortAwesome/Font-Awesome/blob/master/fonts/FontAwesome.otf
 fc-cache
 
 #intsall terminalrc
@@ -12,7 +12,7 @@ ln -s $HOME/.dotfiles/xfce4-terminal/terminalrc $HOME/.config/xfce4/terminal/ter
 
 # install vim
 mkdir $HOME/.dotfiles/vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim $HOME/.dotfiles/vim/bundle/Vundle.vim
+[ ! -e $HOME/.dotfiles/vim/bundle/Vundle.vim ] && git clone https://github.com/VundleVim/Vundle.vim $HOME/.dotfiles/vim/bundle/Vundle.vim
 ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 vim +PluginInstall +qall
 
