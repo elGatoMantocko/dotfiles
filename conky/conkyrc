@@ -12,7 +12,7 @@ times_in_seconds true
 
 TEXT
 ,[
-  {"full_text": "   ${exec cat ~/.tmp/weather/current}°F ", "color":"\#B58900"},
+  {"full_text": " ${exec cat ~/.tmp/weather/icon}  ${exec cat ~/.tmp/weather/current}°F ", "color":"\#B58900"},
   ${if_up wlp3s0}
     {"full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB ","color":"\#A4ADD3"},
     {"full_text": "   ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#33CC99"},

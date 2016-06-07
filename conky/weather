@@ -7,5 +7,8 @@ DATA=$(curl -s $URL | jq '.currently')
 
 TEMP=$(echo $DATA | jq '.temperature')
 SUM=$(echo $DATA | jq '.summary' | sed -e 's/^"//'  -e 's/"$//')
+ICON_STR=$(echo $DATA | jq '.icon')
+ICON=$(cat /home/elliott/.dotfiles/conky/icons.json | jq ".[$ICON_STR]" | sed -e 's/^"//'  -e 's/"$//')
 
+echo $ICON > /home/elliott/.tmp/weather/icon
 echo $SUM $TEMP > /home/elliott/.tmp/weather/current
