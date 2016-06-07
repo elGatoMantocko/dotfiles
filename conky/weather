@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# one liner for data
+# DATA=curl "https://api.forecast.io/forecast/$(cat $HOME/.dotfiles/conky/forecast_api_key)/$(curl ipinfo.io | jq '.loc' | sed -e 's/^"//g' -e 's/"$//g')" | jq '.currently'
+
 LOC=$(curl -s ipinfo.io | jq '.loc' | sed -e 's/^"//'  -e 's/"$//')
 
 if [ -e $HOME/.dotfiles/conky/forecast_api_key ]; then 
