@@ -1,7 +1,14 @@
 #!/bin/bash
 
 LOC=$(curl -s ipinfo.io | jq '.loc' | sed -e 's/^"//'  -e 's/"$//')
-URL="https://api.forecast.io/forecast/$(cat $HOME/.dotfiles/conky/forecast_api_key)/$LOC"
+
+if [ -e $HOME/.dotfiles/conky/forecast_api_key ]; then 
+  URL="https://api.forecast.io/forecast/$(cat $HOME/.dotfiles/conky/forecast_api_key)/$LOC"
+else
+  echo "Be sure to set up your api key at api.forecast.io"
+  echo "  Put the key in $HOME/.dotfiles/conky/forecast_api_key"
+  exit 1
+fi
 
 DATA=$(curl -s $URL | jq '.currently')
 
