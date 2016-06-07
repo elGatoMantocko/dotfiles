@@ -29,6 +29,7 @@ ln -s $HOME/.dotfiles/dunst/dunstrc $HOME/.dunstrc
 ln -s $HOME/.dotfiles/feh/fehbg $HOME/.fehbg
 
 # install i3
+mkdir -p $HOME/.config/i3
 ln -s $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 
 # install X
