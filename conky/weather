@@ -15,7 +15,7 @@ fi
 
 DATA=$(curl -s $URL | jq '.currently')
 
-TEMP=$(echo $DATA | jq '.temperature')
+TEMP=$(echo $DATA | jq '.apparentTemperature')
 SUM=$(echo $DATA | jq '.summary' | sed -e 's/^"//'  -e 's/"$//')
 ICON_STR=$(echo $DATA | jq '.icon')
 ICON=$(cat $HOME/.dotfiles/conky/icons.json | jq ".[$ICON_STR]" | sed -e 's/^"//'  -e 's/"$//')
