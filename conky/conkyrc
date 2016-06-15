@@ -12,26 +12,73 @@ times_in_seconds true
 
 TEXT
 ,[
-  {"full_text": " ${exec cat ~/.tmp/weather/icon}  ${exec cat ~/.tmp/weather/current}°F ", "color":"\#B58900"},
+  # weather
+  {
+    "full_text": " ${exec cat ~/.tmp/weather/icon}  ${exec cat ~/.tmp/weather/current}°F ",
+    "color":"\#B58900",
+    "align": "left"
+  },
+  
+  # wireless adapter
   ${if_up wlp3s0}
-    {"full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB ","color":"\#A4ADD3"},
-    {"full_text": "   ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#33CC99"},
-  $else ${if_up ppp0}
-    {"full_text": "   ${downspeedf ppp0}KB   ${upspeedf ppp0}KB ","color":"\#A4ADD3"},
-    {"full_text": "   orange ","color":"\#33CC99"},
-  $else ${if_up enp0s25}
-    {"full_text": "   ${downspeedf enp0s25}KB   ${upspeedf enp0s25}KB ","color":"\#A4ADD3"},
-    {"full_text": "   enp0s25 ","color":"\#33CC99"},
-  $else
-    {"full_text": " ≈ no connection ","color":"\#33CC99"},
+    {
+      "full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB ",
+      "color":"\#A4ADD3"
+    },
+    {
+      "full_text": "   ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ",
+      "color":"\#33CC99"
+    },
+  $else 
+    # vpn
+    ${if_up ppp0}
+      {
+        "full_text": "   ${downspeedf ppp0}KB   ${upspeedf ppp0}KB ",
+        "color":"\#A4ADD3"
+      },
+      {
+        "full_text": "   orange ",
+        "color":"\#33CC99"
+      },
+    $else
+      # ethernet adapter
+      ${if_up enp0s25}
+        {
+          "full_text": "   ${downspeedf enp0s25}KB   ${upspeedf enp0s25}KB ",
+          "color":"\#A4ADD3"
+        },
+        {
+          "full_text": "   enp0s25 ",
+          "color":"\#33CC99"
+        },
+      $else
+        {
+          "full_text": " ≈ no connection ",
+          "color":"\#33CC99"
+        },
+      $endif
+    $endif
   $endif
-  $endif
-  $endif
-  {"full_text": " ${exec ~/.dotfiles/conky/batteryicon} [${battery_percent BAT1}%, ${battery_percent BAT0}%] ${format_time ${battery_time BAT1} "\hh \mm"} ","color":"\#9933CC"},
+
+  # battery status
+  {
+    "full_text": " ${exec ~/.dotfiles/conky/batteryicon} [${battery_percent BAT1}%, ${battery_percent BAT0}%] ${format_time ${battery_time BAT1} "\hh \mm"} ",
+    "color":"\#9933CC"
+  },
+  
+  # system volume
   {
 	  "full_text": "   ${exec ~/.dotfiles/conky/volumelevel.sh}% ",
 	  "color": ${if_empty ${exec ~/.dotfiles/conky/ismute.sh | grep yes}}"\#cccccc"${else}"\#ffff00"${endif}
   },
-  {"full_text": " ${time %a %b %d} "},
-  {"full_text": " ${time %I:%M} "}
+  
+  # date
+  {
+    "full_text": " ${time %a %b %d} "
+  },
+
+  # time
+  {
+    "full_text": " ${time %I:%M} "
+  }
 ]
