@@ -20,13 +20,13 @@ TEXT
   },
   
   # wireless adapter
-  ${if_up wlp3s0}
+  ${if_up wlan0}
     {
-      "full_text": "   ${downspeedf wlp3s0}KB   ${upspeedf wlp3s0}KB ",
+      "full_text": "   ${downspeedf wlan0}KB   ${upspeedf wlan0}KB ",
       "color":"\#A4ADD3"
     },
     {
-      "full_text": "   ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ",
+      "full_text": "   ${wireless_essid wlan0} [${wireless_link_qual_perc wlan0}%] ",
       "color":"\#33CC99"
     },
   $else 
@@ -42,13 +42,13 @@ TEXT
       },
     $else
       # ethernet adapter
-      ${if_up enp0s25}
+      ${if_up eth0}
         {
-          "full_text": "   ${downspeedf enp0s25}KB   ${upspeedf enp0s25}KB ",
+          "full_text": "   ${downspeedf eth0}KB   ${upspeedf eth0}KB ",
           "color":"\#A4ADD3"
         },
         {
-          "full_text": "   enp0s25 ",
+          "full_text": "   eth0 ",
           "color":"\#33CC99"
         },
       $else
