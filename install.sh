@@ -36,4 +36,5 @@ ln -s $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 ln -s $HOME/.dotfiles/X/xinitrc $HOME/.xinitrc
 
 # install zsh
+[ ! -e $HOME/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
