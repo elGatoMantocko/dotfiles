@@ -19,6 +19,8 @@ dunst -config ~/.dunstrc &
 
 udiskie &
 
+xautolock &
+
 [ -e ~/.compton.conf ] && compton --config ~/.compton.conf &
 
 >> /dev/null which nm-applet && nm-applet &
