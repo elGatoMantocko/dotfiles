@@ -62,14 +62,14 @@ TEXT
 
   # battery status
   {
-    "full_text": " ${exec ~/.dotfiles/conky/batteryicon} [${battery_percent BAT1}%, ${battery_percent BAT0}%] ${format_time ${battery_time BAT1} "\hh \mm"} ",
+    "full_text": " ${exec ~/.dotfiles/scripts/batteryicon} [${battery_percent BAT1}%, ${battery_percent BAT0}%] ${format_time ${battery_time BAT1} "\hh \mm"} ",
     "color":"\#9933CC"
   },
   
   # system volume
   {
-	  "full_text": "   ${exec ~/.dotfiles/conky/volumelevel.sh}% ",
-	  "color": ${if_empty ${exec ~/.dotfiles/conky/ismute.sh | grep yes}}"\#cccccc"${else}"\#ffff00"${endif}
+	  "full_text": "   ${exec ~/.dotfiles/scripts/volumelevel.sh}% ",
+	  "color": ${if_empty ${exec ~/.dotfiles/scripts/ismute.sh | grep yes}}"\#cccccc"${else}"\#ffff00"${endif}
   },
   
   # date
