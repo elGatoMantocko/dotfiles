@@ -15,11 +15,13 @@ xrdb -merge ~/.dotfiles/X/xresources
 
 [ -e ~/.fehbg ] && source ~/.fehbg
 
-dunst -config ~/.dunstrc & 
+[ -e ~/.dunstrc ] && dunst -config ~/.dunstrc & 
 
 udiskie &
 
 xautolock &
+
+[ -e ~/.config/yabar/yabar.conf ] && yabar &
 
 [ -e ~/.compton.conf ] && compton --config ~/.compton.conf &
 
