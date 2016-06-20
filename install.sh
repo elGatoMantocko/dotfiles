@@ -35,6 +35,10 @@ ln -s $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 # install X
 ln -s $HOME/.dotfiles/X/xinitrc $HOME/.xinitrc
 
+# install yabar
+mkdir -p $HOME/.config/yabar
+ln -s $HOME/.dotfiles/yabar/yabar.conf $HOME/.config/yabar/yabar.conf
+
 # install zsh
 [ ! -e $HOME/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
