@@ -11,7 +11,7 @@ if [ ! -e ~/.dotfiles/scripts/forecast_api_key ]; then
   echo "Be sure to set up your api key at api.forecast.io"
   echo "  Put the key in $HOME/.dotfiles/scripts/forecast_api_key"
   exit 1
-elif [ -n "$LOC" ]; then
+elif [ -z "$LOC" ]; then
   echo "Look outside" > $HOME/.tmp/weather/current
   exit 1
 else
