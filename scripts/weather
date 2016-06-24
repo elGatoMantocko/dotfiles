@@ -5,12 +5,17 @@
 
 LOC=$(curl -s ipinfo.io | jq '.loc' | sed -e 's/^"//'  -e 's/"$//')
 
-if [ -e ~/.dotfiles/scripts/forecast_api_key ]; then 
-  URL="https://api.forecast.io/forecast/$(cat ~/.dotfiles/scripts/forecast_api_key)/$LOC"
-else
+# need to make sure that the keyfile exists and
+#  there is a network connection
+if [ ! -e ~/.dotfiles/scripts/forecast_api_key ]; then 
   echo "Be sure to set up your api key at api.forecast.io"
   echo "  Put the key in $HOME/.dotfiles/scripts/forecast_api_key"
   exit 1
+elif [ -n "$LOC" ]; then
+  echo "Look outside" > $HOME/.tmp/weather/current
+  exit 1
+else
+  URL="https://api.forecast.io/forecast/$(cat ~/.dotfiles/scripts/forecast_api_key)/$LOC"
 fi
 
 DATA=$(curl -s $URL | jq '.currently')
