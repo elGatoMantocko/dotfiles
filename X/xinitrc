@@ -19,7 +19,7 @@ xrdb -merge ~/.dotfiles/X/xresources
 
 udiskie &
 
-xautolock &
+xautolock -time 7 -locker lock &
 
 [ -e ~/.config/yabar/yabar.conf ] && yabar &
 
