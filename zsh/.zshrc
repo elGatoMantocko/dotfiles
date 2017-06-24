@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -51,12 +51,22 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
+# FZF Configuration
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+source "/usr/share/fzf/key-bindings.zsh"
+
+
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.dotfiles/X:$HOME/.bin:$HOME/bin:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -88,4 +98,3 @@ alias pbpaste='xsel --clipboard --output'
 alias ls='ls --color=auto'
 alias la='ls --color=auto -alFh'
 alias ll='ls --color=auto -lFh'
-
