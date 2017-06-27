@@ -67,6 +67,7 @@ source "/usr/share/fzf/key-bindings.zsh"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export EDITOR='vim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
