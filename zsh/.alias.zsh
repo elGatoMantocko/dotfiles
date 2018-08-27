@@ -7,3 +7,5 @@ alias la='gls --color=auto -alFh'
 alias ll='gls --color=auto -lFh'
 
 alias ping='prettyping --nolegend'
+
+alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
