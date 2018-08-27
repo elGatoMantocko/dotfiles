@@ -1,0 +1,15 @@
+[user]
+  name = Elliott Mantock
+  email = emantock@egencia.com
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+  br = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+  aliases = config --get-regexp alias
+[core]
+  editor = /usr/local/bin/vim
+[url "https://"]
+  insteadOf = git://
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+
