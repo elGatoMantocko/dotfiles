@@ -14,7 +14,7 @@ plugins=(
 # User configuration
 export EDITOR='vim'
 export GIT_COMMIT=local
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)/jre
 export NVM_DIR="$HOME/.nvm"
 # export JAVA_TOOL_OPTIONS="-javaagent:/Users/emantock/Downloads/lombok.jar -Xbootclasspath/p:/Users/emantock/Downloads/lombok.jar"
 
